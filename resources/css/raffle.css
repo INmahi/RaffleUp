@@ -1,0 +1,24 @@
+:root{
+    --raffle-blue :#0d6efd;
+    --dark-bg:#101316;
+    --raffle-text:#d5d6e9;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--dark-bg);
+    font-family: 'Roboto', sans-serif;
+    color:var(--raffle-text)
+}
+#nameField{
+    background: #192026;
+    border: #000;
+    /* box-shadow: inset 8px 0px 22px 0px #020203; */
+    color: #d1d3eb;
+    
+}
+.input-group{
+    border-radius: 0!important;
+}
