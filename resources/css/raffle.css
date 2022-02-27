@@ -12,6 +12,9 @@ body{
     font-family: 'Roboto', sans-serif;
     color:var(--raffle-text)
 }
+::selection{
+    background-color: #c3c7ec54;
+}
 #nameField{
     background: #192026;
     border: #000;
