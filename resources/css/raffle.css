@@ -22,6 +22,12 @@ body{
     color: #d1d3eb;
     
 }
+#displayRes{
+    background: #192026;
+    border: #000;
+    /* box-shadow: inset 8px 0px 22px 0px #020203; */
+    color: #d1d3eb;
+}
 .input-group{
     border-radius: 0!important;
 }

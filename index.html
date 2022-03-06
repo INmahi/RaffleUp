@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/efb5548e33.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
     <!-- Modal -->
@@ -37,6 +40,14 @@
       </div>
     </div>
   </div>
+  <!-- /Modal -->
+  <!-- Error Toast -->
+
+  <div class="alert alert-danger alert-dismissible fade show mt-2 d-none" role="alert" id="alert_close">
+    <strong>🙁Tutorial Unavailable!</strong> I am working on it. <a href="mailto:contact@mahi.xiowner.com" class="link-success">Help me making that?</a>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <!-- /Error Toast -->
     <main>
         <header>
             <div class="header-items">
@@ -87,12 +98,19 @@
                         <hr>
                         
                         <div class="container-fluid name_details" style="padding-left: 0; padding-right: 0;">
-                            <ul class="list-group mt-5">
-                                <li class="list-group-item bg-primary disabled text-white" aria-current="true">All Names</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                                <li class="list-group-item">A fourth item</li>
-                                <li class="list-group-item">And a fifth one</li>
+                            <ul class="list-group mt-5" style="
+                            max-width: 500px; min-width: 200px;">
+                                <li class="list-group-item bg-primary disabled text-white" aria-current="true">See Names Here</li>
+                                <li class="list-group-item">
+                                  <span>An example name</span>
+                                  <span class="float-end">
+                                    <button class="btn btn-success btn-sm text-white mx-2" id="editName">
+                                      <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger text-white mx-2" id="removeName">
+                                      <i class="fa-solid fa-xmark"></i>                                   </button>
+                                  </span>
+                                </li>
                               </ul>
                         </div>
                     </div>
@@ -103,10 +121,10 @@
                             See Results Here:
                         </h4>
                         <span class="text-muted">Experience the magic</span>
-                        <input name="nameField" id="nameField" placeholder="Let's See Who Wins" class="p-3 text-center" style="outline: none;color: #fff;width: 100%;font-size: 18px;">
+                        <input name="displayRes" id="displayRes" placeholder="Let's See Who Wins" class="p-3 text-center" style="outline: none;color: #fff;width: 100%;font-size: 18px;" value="">
 
-                        <button class="btn btn-warning mt-3 disabled" style="border-radius: 0;" id="getWinner">Get Another Winner</button>
-                        <button class="btn btn-primary mt-3 d-none" type="button" id="loading" >
+                        <button class="btn btn-primary mt-3 disabled" style="border-radius: 0;" id="getWinner">Get Another Winner</button>
+                        <button class="btn btn-secondary mt-3 d-none" type="button" id="loading" >
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Loading...
                         </button>
