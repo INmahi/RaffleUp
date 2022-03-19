@@ -31,3 +31,8 @@ body{
 .input-group{
     border-radius: 0!important;
 }
+.active-name-edit{
+    border: 1px solid #2021217d;
+    padding: 4px;
+    border-radius: 3px;
+}

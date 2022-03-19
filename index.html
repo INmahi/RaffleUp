@@ -81,33 +81,52 @@
                   </nav>
             </div>
         </header>
+
+
+
+        <div class="toast position-fixed bottom-0 end-0 my-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false" style="z-index: 1000;">
+          <div class="toast-header">
+            <i class="fas fa-exclamation-triangle text-danger mx-2"></i>
+            <strong class="me-auto text-dark">Unsaved Changes</strong>
+            <small>System Alert</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body text-black-50">
+            You have made changes to the name. Click Save and Roll Again. Otherwise you may face bug!
+          </div>
+        </div>
+
+      
+
         <!-- RAFFLE FIELD -->
         <div class="container-fluid raffle-container">
             <div class="row">
                 <div class="col-sm-7 overflow-hidden">
                     <div class="collum-inner p-5">
                         <h4 class="h4 text-capitalize">
-                            enter all names
+                            enter all names, Comma seppareted
                         </h4>
-                        <p class="text-muted">Must be Comma seppareted</p>
+                        <p class="text-muted">Input and hit <strong>Enter</strong></p>
                         <textarea name="nameField" id="nameField" cols="70" rows="8" placeholder="John Doe, Jane Doe, etc" class="p-3" style="outline: none;"></textarea>
 
                         <button class="btn btn-outline-light" style="margin-top: 7.2px;" title="Import demo names for test purpose" id="importBtn">Import Demo</button>
-                        <button class="btn btn-outline-primary" style="margin-top: 7.2px;margin-left: 5px;" title="Show All names as list. Edit, Add or remove names" id="showNames" disabled>Show All Names</button>
-                        <button class="btn btn-outline-success float-end m-2" id="roll" disabled>Confirm & Roll</button>
+                        <button class="btn btn-outline-primary" style="margin-top: 7.2px;margin-left: 5px;" title="Show All names as list. Edit, Add or remove names" id="showNames" data-bs-toggle="tooltip" data-bs-placement="bottom" disabled>Show All Names</button>
+                        <button class="btn btn-success float-end m-2" id="roll" disabled>Roll</button>
                         <hr>
                         
                         <div class="container-fluid name_details" style="padding-left: 0; padding-right: 0;">
                             <ul class="list-group mt-5" style="
                             max-width: 500px; min-width: 200px;">
-                                <li class="list-group-item bg-primary disabled text-white" aria-current="true">See Names Here</li>
+                                <li class="list-group-item bg-primary disabled text-white" aria-current="true">See Names Here
+                  
+                                </li>
                                 <li class="list-group-item">
                                   <span>An example name</span>
                                   <span class="float-end">
-                                    <button class="btn btn-success btn-sm text-white mx-2" id="editName">
+                                    <button class="btn btn-success btn-sm text-white mx-2 edit">
                                       <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger text-white mx-2" id="removeName">
+                                    <button class="btn btn-sm btn-danger text-white mx-2 remove">
                                       <i class="fa-solid fa-xmark"></i>                                   </button>
                                   </span>
                                 </li>
@@ -121,7 +140,9 @@
                             See Results Here:
                         </h4>
                         <span class="text-muted">Experience the magic</span>
-                        <input name="displayRes" id="displayRes" placeholder="Let's See Who Wins" class="p-3 text-center" style="outline: none;color: #fff;width: 100%;font-size: 18px;" value="">
+                        <div id="displayRes"class="p-3 text-center" style="outline: none;color: #fff;width: 100%;font-size: 18px;">
+                        Let's See Who Wins
+                        </div>
 
                         <button class="btn btn-primary mt-3 disabled" style="border-radius: 0;" id="getWinner">Get Another Winner</button>
                         <button class="btn btn-secondary mt-3 d-none" type="button" id="loading" >
@@ -132,17 +153,20 @@
                         <div class="mt-3">
                             <h4 class="text-primary">WINNERS:</h4>
                         </div>
-                        <div class="input-group mt-4">
-                            <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">1st </span>
-                            <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">2nd</span>
-                            <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">3rd </span>
-                            <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <div class="winner-container container" id="winner-container">
+
+                          <div class="input-group mt-4">
+                              <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">1st </span>
+                              <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="win1">
+                          </div>
+                          <div class="input-group">
+                              <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">2nd</span>
+                              <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="win2">
+                          </div>
+                          <div class="input-group">
+                              <span class="input-group-text" style="border-radius: 0!important;" id="inputGroup-sizing-default">3rd </span>
+                              <input type="text" class="form-control" style="border-radius: 0!important;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="win3">
+                          </div>
                         </div>
                     </div>
                 </div>
